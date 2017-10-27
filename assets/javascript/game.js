@@ -15,8 +15,8 @@
     
 
     //Grab random letter
-    var computerGuess = listLetters[Math.floor(Math.random() * listLetters.length)];
-    console.log(computerGuess)
+    var letterGuess = listLetters[Math.floor(Math.random() * listLetters.length)];
+    console.log(letterGuess)
 
 // FUNCTION
     //Function to start the game
@@ -38,12 +38,12 @@
     document.onkeyup = function(event) {
 
         var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-        console.log(computerGuess)
+        console.log(letterGuess)
 
 
 
-        if (userGuess === computerGuess) {
-            alert("You win! Click okay to restart.")
+        if (userGuess === letterGuess) {
+            alert("You win! Click okay to restart. The letter was: " + letterGuess);
             updateLetter();
             resetGame();
             amountWin++;
@@ -52,7 +52,7 @@
             amountLives--;
         }
         if (amountLives === 0) {
-            alert("You lost! Click okay to restart.")
+            alert("You lost! Click okay to restart. The letter was: " + letterGuess)
             updateLetter();
             resetGame();
             amountLoss++;
@@ -60,7 +60,6 @@
         }
         var html =
         "<p>You chose: " + userGuess + "</p>" +
-        "<p>The computer chose: " + computerGuess + "</p>" +
         "<p>wins: " + amountWin + "</p>" +
         "<p>losses: " + amountLoss + "</p>" +
         //"<p>Guesses so far: " + guessLetter "</p>"
